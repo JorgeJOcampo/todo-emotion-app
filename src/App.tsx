@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, Global, css } from '@emotion/react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -25,6 +25,14 @@ const Container = styled.div`
 function App() {
   return (
     <ThemeProvider theme={light}>
+      <Global
+        styles={css`
+          body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #282c34;
+          }
+        `}
+      />
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

@@ -33,5 +33,6 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    "@emotion/pkg-renaming": "error"
   },
 };
