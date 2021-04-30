@@ -1,56 +1,38 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { ThemeProvider, Global, css } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
+import { GlobalStyles, light } from './styles/styles';
 import logo from './logo.svg';
 import './App.css';
-
-declare module '@emotion/react' {
-  export interface Theme {
-    colors: {
-      primary: string;
-    };
-  }
-}
-
-const light = {
-  colors: {
-    primary: 'green'
-  }
-};
 
 const Container = styled.div`
   background: ${({ theme }) => theme.colors.primary};
 `;
 
-function App() {
+const App = (): JSX.Element => {
   return (
-    <ThemeProvider theme={light}>
-      <Global
-        styles={css`
-          body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #282c34;
-          }
-        `}
-      />
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Container>
-            <div>Hola</div>
-          </Container>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    </ThemeProvider>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <Container>
+          <div>Hola</div>
+        </Container>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
-}
+};
 
-export default App;
+export default (): JSX.Element => (
+  <ThemeProvider theme={light}>
+    <GlobalStyles />
+    <App />
+  </ThemeProvider>
+);
