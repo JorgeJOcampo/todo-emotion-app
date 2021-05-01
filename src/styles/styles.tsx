@@ -6,7 +6,7 @@ export const GlobalStyles = (): JSX.Element => (
     styles={css`
       body {
         font-family: 'Montserrat', sans-serif;
-        background-color: #282c34;
+        background-color: #383b3e;
       }
     `}
   />
